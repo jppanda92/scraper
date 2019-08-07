@@ -1,0 +1,18 @@
+version: "3.7"
+
+services:
+  web-crawler-scraper:
+    image: scraper:v2
+    deploy:
+      restart_policy:
+        condition: on-failure
+    volumes:
+      - scraper-output:/tmp/scraper-output/
+
+volumes:
+  scraper-output: 
+
+#output of the scraper is stored at 
+#/var/lib/docker/volumes/scraper_scraper-output/_data/output.csv 
+#on the host machine
+
